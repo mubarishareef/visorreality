@@ -788,7 +788,7 @@ margin-top: 160px;
 
 
 
-@media screen and (max-width:460px) {
+@media screen and (max-width:768px) {
   .main-container{
     align-items: center;
   }
