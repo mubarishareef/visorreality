@@ -644,7 +644,7 @@ padding: 30px 65px;
 .quantity-desc{
   border: 1px solid gray;
 padding: 6px;
-margin-top: -35px;
+margin-top: -15px;
 }
 .quantity-desc span{
   font-size: 16px;
@@ -886,6 +886,7 @@ margin-top: 160px;
     height: 70px;
   }
   .cart-container{
+    max-height: 100%;
     width: 415px;
   padding: 4px;
   }
