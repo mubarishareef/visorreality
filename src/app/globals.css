@@ -796,8 +796,10 @@ margin-top: 160px;
     padding: 300px 40px 140px 30px;
     box-sizing: border-box;
     max-width: 100%;
-    border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+    display: flex;
+    align-items: center;
+    /* border-top-left-radius: 0px;
+    border-top-right-radius: 0px; */
   }
   .hero-banner-image{
     /* width: 60%; */
