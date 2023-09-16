@@ -804,6 +804,7 @@ margin-top: 160px;
   .hero-banner-image{
     /* width: 60%; */
     max-width: 100%;
+    position: sticky;
     height: 210px;
     top: 0%;
     left: -30%;
