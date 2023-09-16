@@ -269,7 +269,7 @@ width: 100%;
   z-index: 2;
 }
 .hero-banner-image{
-  position: sticky;
+  position: absolute;
   top: 5%;
   left:33%;
   /* width: 450px; */
