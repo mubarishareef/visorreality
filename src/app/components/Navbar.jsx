@@ -20,7 +20,6 @@ const Navbar = ({logo}) => {
     }
     else{
       await googleSignIn()
-      toast.success(`Welcome,${user.displayName} You have successfully signed in with your Google account.`)
     }
   }
   return (
