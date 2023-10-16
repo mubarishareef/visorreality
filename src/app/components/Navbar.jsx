@@ -7,6 +7,8 @@ import { useStateContext } from '../../../context/StateContext'
 import { Cart } from '.'
 import { FaGoogle } from 'react-icons/fa';
 import Message from './Message'
+import toast from 'react-hot-toast'
+
 
 const Navbar = ({logo}) => {
   const {totalQty,showCart,setshowCart,viewMessage,showMessage,googleSignIn,user,googleSignOut,onCartOpen}=useStateContext()
@@ -14,9 +16,11 @@ const Navbar = ({logo}) => {
   const handleClick=async()=>{
     if(user){
       await googleSignOut()
+      toast.success(`You have been succesfully signed out`)
     }
     else{
       await googleSignIn()
+      toast.success(`Welcome,${user.displayName} You have successfully signed in with your Google account.`)
     }
   }
   return (

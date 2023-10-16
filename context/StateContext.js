@@ -251,12 +251,12 @@ export const StateContext =({children})=>{
             unSubscribe(); 
         }
     },[user])
-    useEffect(()=>{
-        if(user){toast.success(`Welcome,${user.displayName} You have successfully signed in with your Google account.`)}
-        else{
-            toast.success(`You have been succesfully signed out`)
-        }
-    },[user])
+    // useEffect(()=>{
+    //     if(user){toast.success(`Welcome,${user.displayName} You have successfully signed in with your Google account.`)}
+    //     else{
+            
+    //     }
+    // },[user])
     useEffect(()=>{
         const showQty=async()=>{
             if(user){
