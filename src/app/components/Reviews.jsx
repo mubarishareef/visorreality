@@ -20,6 +20,14 @@ const Reviews = ({setShowReview}) => {
             <span className="customer-name">Customer 1:</span>
             <p>This is a review from Customer 1. It is a very positive review.</p>
           </div>
+          <div className="review">
+            <span className="customer-name">Customer 1:</span>
+            <p>This is a review from Customer 1. It is a very positive review.</p>
+          </div>
+          <div className="review">
+            <span className="customer-name">Customer 1:</span>
+            <p>This is a review from Customer 1. It is a very positive review.</p>
+          </div>
         </div>
       </div>
     </div>
