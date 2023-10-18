@@ -8,7 +8,7 @@ import Reviews from './Reviews';
 
 const Quantity = ({slug }) => {
     const [currSlug, setcurrSlug] = useState()
-    const [showReview,setShowReview]=useState(true)
+    const [showReview,setShowReview]=useState(false)
     useEffect(()=>setcurrSlug(slug),[])
     const {qty,incQty,decQty,setqty}=useStateContext();
     if(currSlug!==slug){setqty(1)}
