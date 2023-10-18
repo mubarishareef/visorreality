@@ -4,10 +4,10 @@ import React from 'react'
 const Reviews = () => {
     // console.log('review');
   return (
-    <div className="popup-container" id="popup">
-    <div className="popup-content">
+    <div className="overlay" id="popup">
+    <div className="popup">
       <div className="popup-header">
-        <button id="closePopup">&times;</button>
+        <button id="closePopup">X</button>
       </div>
       <div className="popup-body">
         <h2>Customer Reviews</h2>
