@@ -13,7 +13,7 @@ const Quantity = ({slug }) => {
     const {qty,incQty,decQty,setqty}=useStateContext();
     if(currSlug!==slug){setqty(1)}
   return (<>
-      <Reviews/>
+     {showReview && <Reviews setShowReview={setShowReview}/>}
      <div className='quantity'>
          <h3>Quantity :</h3>
          <p className='quantity-desc'>

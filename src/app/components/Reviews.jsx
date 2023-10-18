@@ -1,13 +1,13 @@
 'use client'
 import React from 'react'
 
-const Reviews = () => {
+const Reviews = ({setShowReview}) => {
     // console.log('review');
   return (
     <div className="overlay" id="popup">
     <div className="popup">
       <div className="popup-header">
-        <button id="closePopup">X</button>
+        <button id="closePopup" onClick={()=>{setShowReview(false)}}>X</button>
       </div>
       <div className="popup-body">
         <h2>Customer Reviews</h2>
