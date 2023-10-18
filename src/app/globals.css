@@ -38,6 +38,12 @@ width: 100%;
   justify-content: space-between;
 
 }
+.review-button{
+  transition: transform .4s ease;
+}
+.review-button:hover{
+  transform: scale(1.3,1.3)
+}
 .google-button {
   max-height: 40px;
   display: flex;
@@ -785,6 +791,86 @@ margin-top: 160px;
   align-items: center; 
   margin-top: 30px;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.popup-content {
+  padding: 20px;
+}
+
+.popup-header {
+  text-align: right;
+}
+
+#closePopup {
+  cursor: pointer;
+  color: #333;
+  font-size: 24px;
+  border: none;
+  background: transparent;
+}
+
+#closePopup:hover {
+  color: red;
+}
+
+.popup-body h2 {
+  font-size: 18px;
+}
+
+.popup-body form {
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background: #0056b3;
+}
+
+.reviews-container {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.review {
+  margin-bottom: 15px;
+}
+
+.customer-name {
+  font-weight: bold;
+}
+
 
 
 

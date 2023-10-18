@@ -2,13 +2,18 @@
 import React, { useEffect, useState } from 'react'
 import { useStateContext } from '../../../context/StateContext';
 import { AiOutlineMinus,AiOutlinePlus } from 'react-icons/ai'
+import {BiCommentDetail} from 'react-icons/bi'
+import Reviews from './Reviews';
+
 
 const Quantity = ({slug }) => {
     const [currSlug, setcurrSlug] = useState()
+    const [showReview,setShowReview]=useState(true)
     useEffect(()=>setcurrSlug(slug),[])
     const {qty,incQty,decQty,setqty}=useStateContext();
     if(currSlug!==slug){setqty(1)}
-  return (
+  return (<>
+      <Reviews/>
      <div className='quantity'>
          <h3>Quantity :</h3>
          <p className='quantity-desc'>
@@ -16,7 +21,13 @@ const Quantity = ({slug }) => {
              <span className='num'>{qty}</span>
              <span className='plus' onClick={incQty}><AiOutlinePlus/></span>
          </p>
+         <BiCommentDetail size={30} className='review-button' onClick={()=>{
+            setShowReview(true)
+            console.log('done');
+         }}/>
+         <p>Reviews (0)</p>
      </div>
+    </>
   )
 }
 
