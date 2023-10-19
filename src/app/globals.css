@@ -863,6 +863,7 @@ button[type="submit"]:hover {
   overflow-y: auto;
   background-color: #ccc;
   border: #333;
+  border-radius: 15px;
 }
 
 .review {
