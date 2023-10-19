@@ -861,6 +861,8 @@ button[type="submit"]:hover {
 .reviews-container {
   max-height: 150px;
   overflow-y: auto;
+  background-color: #ccc;
+  border: #333;
 }
 
 .review {
