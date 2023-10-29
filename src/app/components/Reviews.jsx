@@ -1,11 +1,18 @@
 'use client'
 import React, { useState } from 'react'
+import { useStateContext } from '../../../context/StateContext'
 
 const Reviews = ({setShowReview}) => {
   const [value,setValue]=useState('')
+  const {onReviewSubmit}=useStateContext()
 
   const handleChange=(e)=>{
       setValue(e.target.value)
+  }
+  const handleSubmit=async(e)=>{
+    e.preventDefault()
+    await onReviewSubmit(value)
+    setValue('')
   }
     // console.log('review');
   return (
@@ -16,7 +23,7 @@ const Reviews = ({setShowReview}) => {
       </div>
       <div className="popup-body">
         <h2>Customer Reviews</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Your Review" value={value} onChange={handleChange}></input>
           <button type="submit">Submit</button>
         </form>

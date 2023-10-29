@@ -285,11 +285,16 @@ export const StateContext =({children})=>{
         }
         showQty();
     },[user,totalQty,price])
+
+    const onReviewSubmit=async(value)=>{
+        const reviewDoc={value:value,userName:user.displayName}
+        await setDoc(doc(db,'reviews',`${user.email}`),reviewDoc)
+    }
     return(
         <Context.Provider value={{
             qty,incQty,decQty,setqty,onAdd,cartItems,price,totalQty,showCart,setshowCart,removeCartItem,
             incCartProductQty,decCartProductQty,googleSignIn,googleSignOut,user,viewMessage,closeMessage,
-            showMessage,onCartOpen,onSuccessPayment
+            showMessage,onCartOpen,onSuccessPayment,onReviewSubmit
         }}>
             {children}
         </Context.Provider>
