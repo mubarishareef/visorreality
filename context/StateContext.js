@@ -288,7 +288,7 @@ export const StateContext =({children})=>{
 
     const onReviewSubmit=async(productName,value)=>{
         const reviewDoc={value:value,userName:user.displayName}
-        await setDoc(doc(db,'reviews',`${productName}`,`${user.email}`),reviewDoc)
+        await setDoc(doc(db,'reviews',`${productName}`,`${user.email}`,'review'),reviewDoc)
     }
     return(
         <Context.Provider value={{
