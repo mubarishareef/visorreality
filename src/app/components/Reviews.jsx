@@ -3,6 +3,10 @@ import React, { useState } from 'react'
 
 const Reviews = ({setShowReview}) => {
   const [value,setValue]=useState('')
+
+  const handleChange=(e)=>{
+      setValue(e.target.value)
+  }
     // console.log('review');
   return (
     <div className="overlay" id="popup">
@@ -13,7 +17,7 @@ const Reviews = ({setShowReview}) => {
       <div className="popup-body">
         <h2>Customer Reviews</h2>
         <form>
-          <input type="text" placeholder="Your Review" value={value}></input>
+          <input type="text" placeholder="Your Review" value={value} onChange={handleChange}></input>
           <button type="submit">Submit</button>
         </form>
         <div className="reviews-container">
