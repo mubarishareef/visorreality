@@ -7,14 +7,14 @@ import Reviews from './Reviews';
 import Message from './Message';
 
 
-const Quantity = ({slug }) => {
+const Quantity = ({slug ,product}) => {
     const [currSlug, setcurrSlug] = useState()
     const [showReview,setShowReview]=useState(false)
     useEffect(()=>setcurrSlug(slug),[])
     const {qty,incQty,decQty,setqty,user,viewMessage,showMessage}=useStateContext();
     if(currSlug!==slug){setqty(1)}
   return (<>
-     {showReview && <Reviews setShowReview={setShowReview}/>}
+     {showReview && <Reviews setShowReview={setShowReview} product={product}/>}
      {showMessage && <Message/>}
      <div className='quantity'>
          <h3>Quantity :</h3>

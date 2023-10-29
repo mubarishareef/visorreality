@@ -2,7 +2,7 @@
 import React, { useState } from 'react'
 import { useStateContext } from '../../../context/StateContext'
 
-const Reviews = ({setShowReview}) => {
+const Reviews = ({setShowReview,product}) => {
   const [value,setValue]=useState('')
   const {onReviewSubmit}=useStateContext()
 
@@ -11,7 +11,7 @@ const Reviews = ({setShowReview}) => {
   }
   const handleSubmit=async(e)=>{
     e.preventDefault()
-    await onReviewSubmit(value)
+    await onReviewSubmit(product.name,value)
     setValue('')
   }
     // console.log('review');
