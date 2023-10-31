@@ -16,6 +16,7 @@ export const StateContext =({children})=>{
     const [totalQty, settotalQty] = useState(0)
     const [user,setuser]=useState(null)
     const [showMessage,setshowMessage]=useState(false)
+    const [reviews,setReviews]=useState([])
     const Qty=useRef(0)
     const priceValue=useRef(0)
 
@@ -290,11 +291,23 @@ export const StateContext =({children})=>{
         const reviewDoc={value:value,userName:user.displayName}
         await setDoc(doc(db,'Reviews',`${productName}`,`${productName} Reviews`,`${user.email}`),reviewDoc)
     }
+
+    const printReviews=async(productName)=>{
+        const querySnapshot = await getDocs(collection(db, 'Reviews',`${productName}`,`${productName} Reviews`));
+        if(querySnapshot){
+            querySnapshot.forEach((doc)=>{
+                setReviews([...reviews,doc.data()])
+            })
+        }
+        else{
+            setReviews([])
+        }
+    }
     return(
         <Context.Provider value={{
             qty,incQty,decQty,setqty,onAdd,cartItems,price,totalQty,showCart,setshowCart,removeCartItem,
             incCartProductQty,decCartProductQty,googleSignIn,googleSignOut,user,viewMessage,closeMessage,
-            showMessage,onCartOpen,onSuccessPayment,onReviewSubmit
+            showMessage,onCartOpen,onSuccessPayment,onReviewSubmit,printReviews,reviews,setReviews
         }}>
             {children}
         </Context.Provider>

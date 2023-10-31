@@ -11,7 +11,7 @@ const Quantity = ({slug ,product}) => {
     const [currSlug, setcurrSlug] = useState()
     const [showReview,setShowReview]=useState(false)
     useEffect(()=>setcurrSlug(slug),[])
-    const {qty,incQty,decQty,setqty,user,viewMessage,showMessage}=useStateContext();
+    const {qty,incQty,decQty,setqty,user,viewMessage,showMessage,printReviews}=useStateContext();
     if(currSlug!==slug){setqty(1)}
   return (<>
      {showReview && <Reviews setShowReview={setShowReview} product={product}/>}
@@ -23,8 +23,10 @@ const Quantity = ({slug ,product}) => {
              <span className='num'>{qty}</span>
              <span className='plus' onClick={incQty}><AiOutlinePlus/></span>
          </p>
-         <BiCommentDetail size={30} className='review-button' onClick={()=>{
-            if(user){setShowReview(true)}
+         <BiCommentDetail size={30} className='review-button' onClick={async()=>{
+            if(user){
+              await printReviews(product.name)             
+              setShowReview(true)}
             else{viewMessage()}
          }}/>
          <p>Reviews (0)</p>

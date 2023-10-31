@@ -4,7 +4,7 @@ import { useStateContext } from '../../../context/StateContext'
 
 const Reviews = ({setShowReview,product}) => {
   const [value,setValue]=useState('')
-  const {onReviewSubmit}=useStateContext()
+  const {onReviewSubmit,reviews,setReviews}=useStateContext()
 
   const handleChange=(e)=>{
       setValue(e.target.value)
@@ -19,7 +19,10 @@ const Reviews = ({setShowReview,product}) => {
     <div className="overlay" id="popup">
     <div className="popup">
       <div className="popup-header">
-        <button id="closePopup" onClick={()=>{setShowReview(false)}}>X</button>
+        <button id="closePopup" onClick={()=>{
+          setReviews([])
+          setShowReview(false)
+        }}>X</button>
       </div>
       <div className="popup-body">
         <h2>Customer Reviews</h2>
@@ -28,18 +31,14 @@ const Reviews = ({setShowReview,product}) => {
           <button type="submit">Submit</button>
         </form>
         <div className="reviews-container">
-          <div className="review">
-            <span className="customer-name">Customer 1:</span>
-            <p>This is a review from Customer 1. It is a very positive review.</p>
-          </div>
-          <div className="review">
-            <span className="customer-name">Customer 1:</span>
-            <p>This is a review from Customer 1. It is a very positive review.</p>
-          </div>
-          <div className="review">
-            <span className="customer-name">Customer 1:</span>
-            <p>This is a review from Customer 1. It is a very positive review.</p>
-          </div>
+          {reviews.map((review)=>{
+            return (
+              <div className="review">
+                 <span className="customer-name">{review.userName}</span>
+                 <p>{review.value}</p>
+            </div>
+            )
+          })}
         </div>
       </div>
     </div>
