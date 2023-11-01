@@ -4,7 +4,7 @@ import { useStateContext } from '../../../context/StateContext'
 
 const Reviews = ({setShowReview,product}) => {
   const [value,setValue]=useState('')
-  const {onReviewSubmit,reviews}=useStateContext()
+  const {onReviewSubmit,reviews,printReviews}=useStateContext()
 
   const handleChange=(e)=>{
       setValue(e.target.value)
@@ -12,6 +12,7 @@ const Reviews = ({setShowReview,product}) => {
   const handleSubmit=async(e)=>{
     e.preventDefault()
     await onReviewSubmit(product.name,value)
+    await printReviews(product.name)
     setValue('')
   }
     // console.log('review');

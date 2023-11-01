@@ -301,7 +301,7 @@ export const StateContext =({children})=>{
             })
         }
         else{
-            setReviews([])
+            reviews.current=[]
         }
     }
     return(
