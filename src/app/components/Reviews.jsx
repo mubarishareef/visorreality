@@ -4,7 +4,7 @@ import { useStateContext } from '../../../context/StateContext'
 
 const Reviews = ({setShowReview,product}) => {
   const [value,setValue]=useState('')
-  const {onReviewSubmit,reviews,setReviews}=useStateContext()
+  const {onReviewSubmit,reviews}=useStateContext()
 
   const handleChange=(e)=>{
       setValue(e.target.value)
@@ -20,7 +20,7 @@ const Reviews = ({setShowReview,product}) => {
     <div className="popup">
       <div className="popup-header">
         <button id="closePopup" onClick={()=>{
-          setReviews([])
+          reviews.current=[]
           setShowReview(false)
         }}>X</button>
       </div>
@@ -31,7 +31,7 @@ const Reviews = ({setShowReview,product}) => {
           <button type="submit">Submit</button>
         </form>
         <div className="reviews-container">
-          {reviews.map((review)=>{
+          {reviews.current.map((review)=>{
             return (
               <div className="review">
                  <span className="customer-name">{review.userName}</span>

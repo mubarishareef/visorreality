@@ -16,7 +16,7 @@ export const StateContext =({children})=>{
     const [totalQty, settotalQty] = useState(0)
     const [user,setuser]=useState(null)
     const [showMessage,setshowMessage]=useState(false)
-    const [reviews,setReviews]=useState([])
+    const reviews=useRef([])
     const Qty=useRef(0)
     const priceValue=useRef(0)
 
@@ -296,7 +296,8 @@ export const StateContext =({children})=>{
         const querySnapshot = await getDocs(collection(db, 'Reviews',`${productName}`,`${productName} Reviews`));
         if(querySnapshot){
             querySnapshot.forEach((doc)=>{
-                setReviews([...reviews,doc.data()])
+                // setReviews([...reviews,doc.data()])
+                reviews.current=[...reviews.current,doc.data()]
             })
         }
         else{
@@ -307,7 +308,7 @@ export const StateContext =({children})=>{
         <Context.Provider value={{
             qty,incQty,decQty,setqty,onAdd,cartItems,price,totalQty,showCart,setshowCart,removeCartItem,
             incCartProductQty,decCartProductQty,googleSignIn,googleSignOut,user,viewMessage,closeMessage,
-            showMessage,onCartOpen,onSuccessPayment,onReviewSubmit,printReviews,reviews,setReviews
+            showMessage,onCartOpen,onSuccessPayment,onReviewSubmit,printReviews,reviews
         }}>
             {children}
         </Context.Provider>
