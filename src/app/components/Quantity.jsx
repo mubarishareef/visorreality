@@ -29,7 +29,7 @@ const Quantity = ({slug ,product}) => {
               setShowReview(true)}
             else{viewMessage()}
          }}/>
-         <p>Reviews (0)</p>
+         <p>Reviews</p>
      </div>
     </>
   )
